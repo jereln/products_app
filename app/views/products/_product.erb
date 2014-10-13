@@ -1,0 +1,12 @@
+<div class="product">
+  <% if product.image_processed? %>
+    <%= link_to image_tag(product.image_url(:thumb)), product %>
+  <% else %>
+    <em>Processing...</em>
+  <% end %>
+  <div class="name"><%= product.name %></div>
+  <div class="actions">
+    <%= link_to "edit", edit_product_path(product) %> |
+    <%= link_to "remove", product, :confirm => 'Are you sure?', :method => :delete %>
+  </div>
+</div>
